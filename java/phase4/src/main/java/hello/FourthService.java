@@ -38,7 +38,23 @@ public class FourthService extends FourthServiceImplBase {
                 String requestInfo = String.format("Got server stream grpc request!, Counter: %d, name: %s",
                         counter, phrase);
                 logger.info(requestInfo);
-                processResponse(counter, phrase, sleep, responseObserver);
+
+                /*
+                Same response code as before
+                 */
+                FirstResponse firstResponse = GetFirstResponse(counter, phrase);
+                IntStream.range(1, counter).forEach(
+                        n -> {
+                            SecondResponse secondResponse = getSecondResponse(firstResponse, n);
+                            responseObserver.onNext(secondResponse);
+                            try {
+                                TimeUnit.SECONDS.sleep(sleep);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                );
+                responseObserver.onCompleted();
             }
         };
     }

@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
 public class HelloController {
-    private final FirstClient clientJava;
-    private final FirstClient clientPython;
+    private final FirstClient client1;
+    private final FirstClient client2;
 
     public HelloController() {
-        clientJava = new FirstClient(8980);
-        clientPython = new FirstClient(50051);
+        client1 = new FirstClient(8980);
+        client2 = new FirstClient(50051);
     }
     @RequestMapping("/")
     public String index() {
@@ -22,13 +22,13 @@ public class HelloController {
     public FeMessage block1(@RequestParam(value="counter", defaultValue="1") int counter,
                             @RequestParam(value="phrase", defaultValue="hello world") String phrase) {
 
-        return new FeMessage(clientJava.getCombine(counter, phrase));
+        return new FeMessage(client1.getCombine(counter, phrase));
     }
 
     @RequestMapping("/block2")
     public FeMessage block2(@RequestParam(value="counter", defaultValue="1") int counter,
-                         @RequestParam(value="phrase", defaultValue="hello world") String phrase) {
+                            @RequestParam(value="phrase", defaultValue="hello world") String phrase) {
 
-        return new FeMessage(clientPython.getCombine(counter, phrase));
+        return new FeMessage(client2.getCombine(counter, phrase));
     }
 }

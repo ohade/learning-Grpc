@@ -81,8 +81,8 @@ public class FourthClient {
     private StreamObserver<SleepRequest> getServerObserver(CountDownLatch finishLatch, String serverName) {
         return asyncStub.getCombineServerStreamWithSleep(new StreamObserver<SecondResponse>() {
             @Override
-            public void onNext(test.SecondResponse res) {
-                printRes(res, serverName);
+            public void onNext(test.SecondResponse response) {
+                printRes(response, serverName);
             }
 
             @Override
