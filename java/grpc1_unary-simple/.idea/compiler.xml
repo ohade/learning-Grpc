@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="gs-rest-service" />
+        <module name="gs-rest-service-phase2" />
+        <module name="gs-rest-service-phase3" />
+        <module name="gs-rest-service-phase4" />
+        <module name="phase2" />
+        <module name="phase3" />
+        <module name="phase4" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="gs-rest-service" target="1.8" />
+      <module name="gs-rest-service-phase2" target="1.8" />
+      <module name="gs-rest-service-phase3" target="1.8" />
+      <module name="gs-rest-service-phase4" target="1.8" />
+      <module name="phase2" target="1.8" />
+      <module name="phase3" target="1.8" />
+      <module name="phase4" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

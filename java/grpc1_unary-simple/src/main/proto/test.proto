@@ -1,0 +1,38 @@
+// See README.txt for information and build instructions.
+//
+// Note: START and END tags are used in comments to define sections used in
+// tutorials.  They are not part of the syntax for Protocol Buffers.
+//
+// To get an in-depth walkthrough of this file and the related examples, see:
+// https://developers.google.com/protocol-buffers/docs/tutorials
+
+// [START declaration]
+
+
+syntax = "proto3";
+package hello;
+// [END declaration]
+
+// [START java_declaration]
+option java_package = "hello";
+option java_outer_classname = "test";
+// [END java_declaration]
+
+// [START messages]
+message FirstRequest {
+  int32 counter = 1;
+  string phrase = 2;
+}
+
+message FirstResponse {
+  repeated string combine = 1;
+}
+
+// [END messages]
+
+service FirstService {
+  rpc GetCombine (FirstRequest) returns (FirstResponse) {}
+  rpc GetCombineClientStream (stream FirstRequest) returns (FirstResponse) {}
+  rpc GetCombineServerStream (FirstRequest) returns (stream FirstResponse) {}
+  rpc GetCombineAsync (stream FirstRequest) returns (stream FirstResponse) {}
+}
